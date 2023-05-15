@@ -1,4 +1,4 @@
-module github.com/ianlopshire/go-ssm-config
+module github.com/poflynn/go-ssm-config
 
 go 1.11
 
