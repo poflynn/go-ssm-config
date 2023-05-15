@@ -17,8 +17,10 @@ import (
 // Process processes the config with a new default provider.
 //
 // See Provider.Process() for full documentation.
-func Process(configPath string, c interface{}) error {
-	sess, err := session.NewSession()
+func Process(configPath string, c interface{}, awsRegion string) error {
+	sess, err := session.NewSession(&aws.Config{
+		Region: aws.String(awsRegion),
+	})
 	if err != nil {
 		err = errors.Wrap(err, "ssmconfig: could not create aws session")
 		return err
